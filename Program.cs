@@ -16,7 +16,7 @@ builder.Services.AddOpenApiDocument(options =>
 	options.Title = "AzurePractice API";
 	options.Version = "v1";
 });
-builder.Services.AddSingleton(new SecretClient(new Uri(keyVaultUrl), new DefaultAzureCredential()));
+builder.Services.AddSingleton(new SecretClient(new Uri(keyVaultUrl), new ManagedIdentityCredential()));
 
 var app = builder.Build();
 
